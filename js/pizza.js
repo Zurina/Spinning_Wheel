@@ -114,8 +114,9 @@ function createPizzaStyleAnimation(person) {
 
 function animation() {
     var style = ""
+    const random = Math.floor(Math.random() * 361)
     for(let i = 0; i < persons.length; i++) {
-        persons[i].currentDegree += 360
+        persons[i].currentDegree += random
         style += createPizzaStyleAnimation(persons[i])
     }
     document.getElementById('pizzaStyle').innerHTML += style;
