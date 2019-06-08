@@ -50,6 +50,7 @@
       <hr class="sidebar-divider d-none d-md-block">
 
       <li>
+       <li>
       <li class="nav-item active">
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
               Add contestants
@@ -75,12 +76,29 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" id="addContestants">Save changes</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="addContestants">Add contestants</button>
       </div>
     </div>
   </div>
 </div>
       </li>
+
+      <!-- Modal -->
+<div class="modal fade" id="winner" tabindex="-1" role="dialog" aria-labelledby="winnerLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content modal-background">
+        <div class="modal-header">
+          <h5 class="modal-title text-black" id="exampleModalLabel">Winner!!!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <p class="text-black" id="last-contestant"></p>
+        </div>
+      </div>
+    </div>
+  </div>
 
     </ul>
     <!-- End of Sidebar -->
@@ -107,6 +125,8 @@
                   <h6 class="m-0 font-weight-bold text-primary">Spinning wheel</h6>
                 </div>
                 <!-- Card Body -->
+                
+            <div class="col-xl-8 col-lg-8">
                 <div class="card-body">
                   <div class="chart-area">
                       <style>
@@ -169,6 +189,94 @@
                           .text-black {
                             color: black
                           }
+
+                          @media only screen and (max-width: 1300px) {
+                            .PizzaArrowHold {
+                              left: 130px;
+                            }
+                            .hold {
+                              left: 130px;
+                            }
+                          }
+
+                          @media only screen and (max-width: 1200px) {
+                            .PizzaArrowHold {
+                              left: 50px;
+                            }
+                            .hold {
+                              left: 50px;
+                            }
+                          }
+
+                          @media only screen and (max-width: 1150px) {
+                            .hold {
+                              position: absolute;
+                              width: 300px;
+                              height: 300px;
+                              clip: rect(0px, 300px, 300px, 150px);
+                              left: 80px;
+                          }
+                          .Pizza {
+                              position: absolute;
+                              width: 300px;
+                              height: 300px;
+                              clip: rect(0px, 150px, 300px, 0px);
+                              border-radius: 150px;
+                              font-size: 16px;
+                          }
+                          .PizzaContainer {
+                              height: 500px;
+                              width: 500px;
+                              float: right;
+                              margin: 0 0 20px 20px;
+                              justify-content: center;
+                              align-items: center;
+                          }
+                          .PizzaArrowHold {
+                            position: absolute;
+                            width: 300px;
+                            height: 300px;
+                            clip: rect(0px, 300px, 300px, 150px);
+                            left: 80px
+                          }
+                          #PizzaArrow {
+                              transform: rotate(269.5deg);
+                          }
+                          #PizzaArrow .InnerPizzaArrow {
+                              position: absolute;
+                              width: 300px;
+                              height: 300px;
+                              clip: rect(0px, 150px, 300px, 0px);
+                              border-radius: 150px;
+                              font-size: 16px;
+                              background-color: black;
+                              transform: rotate(1deg);
+                          }
+                          }
+
+                          @media only screen and (max-width: 990px) {
+                            .PizzaArrowHold {
+                              left: 100px;
+                            }
+                            .hold {
+                              left: 100px;
+                            }
+                          }
+
+                          @media only screen and (max-width: 615px) {
+                            .PizzaArrowHold {
+                              top: 50px;
+                              left: 5px;
+                            }
+                            .hold {
+                              top: 50px;
+                              left: 5px;
+                            }
+                          }
+
+                          .modal-background {
+                            background-image: url('10.jpg')
+                          }
                       </style>
                       <button class="btn btn-primary" id='animate'>SPIN THE WHEEL</button>
                       <div class="PizzaContainer"></div>
@@ -176,6 +284,7 @@
                   </div>
                 </div>
               </div>
+            </div>
             </div>
 
             <!-- Pie Chart -->

@@ -79,10 +79,13 @@ function createArrow() {
 
 function arrangePizzas() {
     if (persons.length == 0) {
-        document.getElementsByClassName('PizzaContainer')[0].innerHTML = `<div class="alert alert-info" role="alert">Add some contestants to the game...</div>`
+        
     }
     else if(persons.length == 1) {
-        document.getElementsByClassName('PizzaContainer')[0].innerHTML = `<div class="alert alert-success" role="alert">${persons[0].name} is the last contestant!!!!</div>`
+        // document.getElementsByClassName('PizzaContainer')[0].innerHTML = `<div class="alert alert-success" role="alert">${persons[0].name} is the last contestant!!!!</div>`
+        document.getElementsByClassName('PizzaContainer')[0].innerHTML = ""
+        document.getElementById('last-contestant').innerHTML = `${persons[0].name} is the winner!!!`
+        $("#winner").modal()
     }
     else {
         var sliceWidth = 360 / persons.length
