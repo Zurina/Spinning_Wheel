@@ -82,7 +82,6 @@ function arrangePizzas() {
         
     }
     else if(persons.length == 1) {
-        // document.getElementsByClassName('PizzaContainer')[0].innerHTML = `<div class="alert alert-success" role="alert">${persons[0].name} is the last contestant!!!!</div>`
         document.getElementsByClassName('PizzaContainer')[0].innerHTML = ""
         document.getElementById('last-contestant').innerHTML = `${persons[0].name} is the winner!!!`
         $("#winner").modal()
@@ -136,18 +135,27 @@ function adjustCurrentDegree() {
 
 function deleteChosenPerson() {
     const pizzaSliceWidth = 360 / persons.length
+    var chosenPerson = null
     for(let i = 0; i < persons.length; i++) {
         const personDegree = persons[i].currentDegree % 360
-        if (personDegree < 270 && (personDegree + pizzaSliceWidth) >= 270)
+        if (personDegree < 270 && (personDegree + pizzaSliceWidth) >= 270) {
+            chosenPerson = persons[i]            
             persons.splice(i, 1)
+        }
     }
+    return chosenPerson.name
+}
+
+function showChosenPerson(name) {
+    document.getElementById('chosenPersonText'). innerHTML = name
+    $("#chosenPerson").modal()
 }
 
 async function game() {
     spinAnimation()
-    deleteChosenPerson()
-
+    const chosenPersonName = deleteChosenPerson()
     await sleep(5000)
+    showChosenPerson(chosenPersonName)
     arrangePizzas()
     adjustCurrentDegree()
     showPersons()
